@@ -34,12 +34,22 @@
 ##
 ##----------------------------------------------------------------------------------------------------------------------
 ##
+## Revision history:
+##
+##	2014-05-29	1.0.1	Minor changes to the help menu and documentation
+##
+##	2014-05-28	1.0.0	Initial release
+##
+##----------------------------------------------------------------------------------------------------------------------
+##
 ## Possible additions:
 ##
 ##		Checksum validation table for verifying files at runtime and easily tracking changes (separate project?).
 ##
 ##		Try a single preceding file import, instead of all preceding files (FILELINKER).  If it works when chained
-##		together like this, then it would save some space in larger programs.  Also preserve file mode.
+##		together like this, then it would save some space in larger programs.
+##
+##		Preserve file ownership.
 ##
 ##----------------------------------------------------------------------------------------------------------------------
 ##
@@ -62,8 +72,8 @@
 ##
 ## Cyclic proof:
 ##
-## This demonstrates total source integrity when fully cycled (file -> files -> file).  Note that you should not modify
-## GLUU-generated lines of code, as those changes may not be preserved.
+## This demonstrates total source integrity when fully cycled (merge -> split -> merge).  Note that you should not
+## modify the GLUU-generated lines of code, as those changes may not be preserved.
 ##
 ##		1) Copy this example program to the temporary directory
 ##
@@ -71,11 +81,11 @@
 ##
 ##		2) Split single file into a directory of multiple files
 ##
-##			$ /tmp/program.py gluu files /tmp/multiple
+##			$ /tmp/program.py gluu split /tmp/multiple
 ##
 ##		3) Merge the multiple files into a single file
 ##
-##			$ /tmp/multiple/program.py gluu file /tmp/program2.py
+##			$ /tmp/multiple/program.py gluu merge /tmp/program2.py
 ##
 ##		4) Compare the sources for cyclic proof
 ##
@@ -109,11 +119,11 @@
 ## Program : General Link-Unlink Utility (GLUU)
 ## Credits : Copyright 2014 by Oxidane
 ## License : MIT (http://opensource.org/licenses/MIT)
-## Storage : (github)
+## Storage : https://github.com/oxidane/gluu
 ##
 ##----------------------------------------------------------------------------------------------------------------------
 
-while __name__ == "__main__": # GLUU 1.0 (2014-05-28)
+while __name__ == "__main__": # GLUU 1.0.1 (2014-05-29)
 	import sys, os, collections, operator ; gluu_name = "GLUU" ; gluu_ver = "1.0" ; gluu_mark = "\"\"\" " + gluu_name
 	gluu_this = "file" ; gluu_hdr = "    " + " ".join([gluu_name, gluu_ver]) ; gluu_tag = "a" ; gluu_len = 2 # 2 digits
 	gluu_type = "\tgluu_this = \"file" ; gluu_cores = "HEADER TITLE PROGRAM FILELINKER IMPORTS ENDFILE FOOTER".split()
@@ -184,7 +194,7 @@ while __name__ == "__main__": # GLUU 1.0 (2014-05-28)
 		of = cli[1] + "/" + self.split("/")[-1] ; f2 = open(of, "w") ; FileFabricate(f2, hdict, batch, "HEADER", \
 		"TITLE", "PROGRAM", [imp,2], ['gap',1], ("FILELINKER",), "IMPORTS", "FOOTER", ['break',1])
 		os.chmod( of, os.stat(self).st_mode&0o777 ) ; print("    Success") ; exit(0)
-	print("    Usage: " + ("\n" + (" " * 11)).join(["gluu file [filename]", "gluu files [directory]"])) ; exit(1)
+	print("    Usage: " + ("\n" + (" " * 11)).join(["gluu split [directory]", "gluu merge [filename]"])) ; exit(1)
 
 """ GLUU PROGRAM """ # -------------------------------------------------------------------------------------------------
 

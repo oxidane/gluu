@@ -2,9 +2,9 @@
 
 # General Link-Unlink Utility (GLUU)
 
-GLUU gives your program the innate ability to split and merge itself.  This makes it possible for a project to be developed as multiple files, while maintained as a single file, or vice-versa.
+GLUU gives your program the innate ability to split and merge itself.  This makes it possible for a project to be developed as multiple files, while distributed as a single file, or vice-versa.  You might call this a dual-form executable, since application-level functionality is identical in either form.
 
-See the source of the included example project for full details and some exceptions.
+See the example source for more details and some exceptions.
 
 
 
@@ -39,9 +39,11 @@ Compare results for a cyclic proof:
 
 ## Notes
 
-To add a file to a GLUU project, you must copy and adapt an existing file.  Note that in multiple-files mode, only the new file needs to be renumbered to position the insertion.  The file prefix "a[0-9]" should always be preserved.
+To add a file to a GLUU project, you must copy and adapt an existing file.  Note that in multiple-files mode, only the new file needs to be renumbered to the position of insertion.  The file prefix "a[0-9]" should always be preserved.
 
-To create a new GLUU project, you should adapt the example project.
+To create a new GLUU-enabled application, it may be easier to adapt an existing one, like the included example.
+
+Latest version may be found here: [https://github.com/oxidane/gluu](https://github.com/oxidane/gluu).
 
 
 
