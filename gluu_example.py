@@ -1,8 +1,31 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-### >>> Copyright 2014 by Oxidane
-### >>> License: MIT (http://opensource.org/licenses/MIT)
+"""
+
+The MIT License (MIT)
+
+Copyright 2014, Oxidane
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+"""
 
 """ GLUU HEADER gap=1 break=3 width=120 """ # --------------------------------------------------------------------------
 
@@ -36,8 +59,8 @@
 ##
 ## Revision history:
 ##
+##	2014-08-27	1.0.2	Various edits and clean up, source uses spaces instead of tabs for github readability
 ##	2014-05-29	1.0.1	Minor changes to the help menu and documentation
-##
 ##	2014-05-28	1.0.0	Initial release
 ##
 ##----------------------------------------------------------------------------------------------------------------------
@@ -49,7 +72,7 @@
 ##		Try a single preceding file import, instead of all preceding files (FILELINKER).  If it works when chained
 ##		together like this, then it would save some space in larger programs.
 ##
-##		Preserve file ownership.
+##		Preserve file ownership (chown).
 ##
 ##----------------------------------------------------------------------------------------------------------------------
 ##
@@ -117,14 +140,14 @@
 ##----------------------------------------------------------------------------------------------------------------------
 ##
 ## Program : General Link-Unlink Utility (GLUU)
-## Credits : Copyright 2014 by Oxidane
+## Credits : Copyright 2014, Oxidane
 ## License : MIT (http://opensource.org/licenses/MIT)
 ## Storage : https://github.com/oxidane/gluu
 ##
 ##----------------------------------------------------------------------------------------------------------------------
 
-while __name__ == "__main__": # GLUU 1.0.1 (2014-05-29)
-	import sys, os, collections, operator ; gluu_name = "GLUU" ; gluu_ver = "1.0" ; gluu_mark = "\"\"\" " + gluu_name
+while __name__ == "__main__": # GLUU 1.0.2 (2014-08-27)
+	gluu_name = "GLUU" ; gluu_ver = "1.0.2" ; gluu_mark = "\"\"\" " + gluu_name ; import sys, os, collections, operator
 	gluu_this = "file" ; gluu_hdr = "    " + " ".join([gluu_name, gluu_ver]) ; gluu_tag = "a" ; gluu_len = 2 # 2 digits
 	gluu_type = "\tgluu_this = \"file" ; gluu_cores = "HEADER TITLE PROGRAM FILELINKER IMPORTS ENDFILE FOOTER".split()
 	if not sys.argv or len(sys.argv) < 2 or sys.argv[1].upper() != gluu_name: break # Skip if not a GLUU command
@@ -194,7 +217,7 @@ while __name__ == "__main__": # GLUU 1.0.1 (2014-05-29)
 		of = cli[1] + "/" + self.split("/")[-1] ; f2 = open(of, "w") ; FileFabricate(f2, hdict, batch, "HEADER", \
 		"TITLE", "PROGRAM", [imp,2], ['gap',1], ("FILELINKER",), "IMPORTS", "FOOTER", ['break',1])
 		os.chmod( of, os.stat(self).st_mode&0o777 ) ; print("    Success") ; exit(0)
-	print("    Usage: " + ("\n" + (" " * 11)).join(["gluu split [directory]", "gluu merge [filename]"])) ; exit(1)
+	x="    Usages: " ; print(x+("\n"+(" "*len(x))).join(["gluu split [directory]", "gluu merge [filename]"])) ; exit(1)
 
 """ GLUU PROGRAM """ # -------------------------------------------------------------------------------------------------
 

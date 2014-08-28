@@ -39,18 +39,17 @@ Compare results for a cyclic proof:
 
 ## Notes
 
-To add a file to a GLUU project, you must copy and adapt an existing file.  Note that in multiple-files mode, only the new file needs to be renumbered to the position of insertion.  The file prefix "a[0-9]" should always be preserved.
+To create a new GLUU-enabled application, you should adapt an existing one, like the included example.
 
-To create a new GLUU-enabled application, it may be easier to adapt an existing one, like the included example.
+To add a new file to a GLUU project, it may be easier in multiple-files mode, where you may copy and adapt an existing file.  The new file should be renumbered to the position of insertion, and cycling it through single-file mode may be necessary to correctly renumber the files.  Note that the file prefix "a[0-9]" should always be preserved when modifying filenames in either mode.
 
-Latest version may be found here: [https://github.com/oxidane/gluu](https://github.com/oxidane/gluu).
+Latest version is found here: [https://github.com/oxidane/gluu](https://github.com/oxidane/gluu).
 
 
 
 ## Copyright and License
 
-Copyright 2014 by Oxidane
-All rights reserved
+Copyright 2014, Oxidane.  All rights reserved.
 
-GLUU uses the [MIT license](http://opensource.org/licenses/MIT).  The copyright and license must be included with any use, modification, or distribution of the source.  See the license for details.
+Distributed under the [MIT License](http://opensource.org/licenses/MIT).  The copyright and license must be included with any use, modification, or redistribution of the source.  See the license for details.
 
